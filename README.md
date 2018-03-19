@@ -4,7 +4,21 @@ Lib is in /vue-mobi-scroll.
 You can copy the lib folder into your own project and use mobiscrollNew.vue as a component.
 By the way, this can only be used in mobile web page and cannot work well on PC. I will try to support PC terminal later.
 
+使用时，在main.js中引入：
+import VueMobiScroll from 'vue-mobi-scroll'
+Vue.use(VueMobiScroll)
+
+在需要引入的组件中描写：
 有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用,其中，
+
+日期示例：
+<vue-mobi-scroll :options="dateOptions"></vue-mobi-scroll>
+
+时间示例：
+<vue-mobi-scroll :options="timeOptions"></vue-mobi-scroll>
+
+多项选择示例：
+<vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
 
 日期模式的参数为：
           type: 'date', // 类型：日期
