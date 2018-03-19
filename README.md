@@ -1,11 +1,9 @@
 # vue-mobi-scroll
 Demo is in /demo, you can run "npm run dev" to see it.
-Lib is in /demo/src/lib.
+Lib is in /vue-mobi-scroll.
 You can copy the lib folder into your own project and use mobiscrollNew.vue as a component.
 
-有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用
-
-其中，
+有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用,其中，
 
 日期模式的参数为：
           type: 'date', // 类型：日期
