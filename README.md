@@ -2,7 +2,7 @@
 Demo is in /demo, you can run "npm run dev" to see it.
 Lib is in /vue-mobi-scroll.
 You can copy the lib folder into your own project and use mobiscrollNew.vue as a component.
-By the way, this can only be used in mobile web page and cannot work well on PC.
+By the way, this can only be used in mobile web page and cannot work well on PC. I will try to support PC terminal later.
 
 有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用,其中，
 
