@@ -4,15 +4,19 @@ Lib is in /demo/src/lib.
 You can copy the lib folder into your own project and use mobiscrollNew.vue as a component.
 
 有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用
-其实，
+
+其中，
+
 日期模式的参数为：
           type: 'date', // 类型：日期
           min: '2016-2-3', // 最小值
           max: '2018-2-3',// 最大值
           origin: '2017-2-3'// 初始值
+
 时间模式的参数为：
           type: 'time',// 类型：时间
           origin: '00:00'// 初始值
+
 多选模式的参数为：
           type: 'select',// 类型：多选
           loop: false,// 可循环
