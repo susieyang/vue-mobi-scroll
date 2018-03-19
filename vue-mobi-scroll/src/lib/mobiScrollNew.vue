@@ -199,7 +199,9 @@
       },
       cancel () {
         this.show = false
-        this.setValue(this.lastValue)
+        if(this.lastValue !== '') {
+          this.setValue(this.lastValue)
+        }
       },
       getHours () {
         let times = []
