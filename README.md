@@ -2,6 +2,7 @@
 Demo is in /demo, you can run "npm run dev" to see it.
 Lib is in /vue-mobi-scroll.
 You can copy the lib folder into your own project and use mobiscrollNew.vue as a component.
+By the way, this can only be used in mobile web page and cannot work well on PC.
 
 有三种基本模式可以选择：日期模式，时间模式和多选模式，只需要给组件传入options即可使用,其中，
 
@@ -21,4 +22,4 @@ You can copy the lib folder into your own project and use mobiscrollNew.vue as a
           origin: '1',// 初始值
           selections: [ // 选项 disable: true 不可选择
             [{name: '请选择', disabled: true}, {name: '1', disabled: false}, {name: '2', disabled: false}, {name: '3', disabled: false}, {name: '4', disabled: false}]
-          ]
+          ]
