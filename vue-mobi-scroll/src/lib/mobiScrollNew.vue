@@ -30,6 +30,7 @@
 <script>
   import mobiScrollPart from './mobiScrollPart.vue'
   export default {
+    name: 'vue-mobi-scroll',
     components: {
       mobiScrollPart
     },

@@ -1,19 +1,16 @@
 <template>
   <div>
     日期示例：
-    <mobiScrollNew :options="dateOptions"></mobiScrollNew>
+    <vue-mobi-scroll :options="dateOptions"></vue-mobi-scroll>
     时间示例：
-    <mobiScrollNew :options="timeOptions"></mobiScrollNew>
+    <vue-mobi-scroll :options="timeOptions"></vue-mobi-scroll>
     多项选择示例：
-    <mobiScrollNew :options="selectOptions"></mobiScrollNew>
+    <vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
   </div>
 </template>
 <script>
-  import mobiScrollNew from '../lib/mobiScrollNew.vue'
+/* eslint-disable */
   export default {
-    components: {
-      mobiScrollNew
-    },
     data () {
       return {
         dateOptions: {
@@ -31,7 +28,10 @@
           loop: false,// 可循环
           origin: '1',// 初始值
           selections: [ // 选项 disable: true 不可选择
-            [{name: '请选择', disabled: true}, {name: '1', disabled: false}, {name: '2', disabled: false}, {name: '3', disabled: false}, {name: '4', disabled: false}]
+            [{name: '请选择', disabled: true}, {name: '1', disabled: false}, {name: '2', disabled: false}, {
+              name: '3',
+              disabled: false
+            }, {name: '4', disabled: false}]
           ]
         }
       }
