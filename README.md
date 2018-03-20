@@ -27,8 +27,8 @@ export default {
   }
 }
 ```
-step3: use<br>
-there are three types can be used: date, time, select, 
+step3: template<br>
+there are three types can be used: date, time, select. Each of them has only one prop: options.
 ``` javascript
 date example：
 <vue-mobi-scroll :options="dateOptions"></vue-mobi-scroll>
@@ -37,29 +37,32 @@ time example：
 select example:
 <vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
 ```
+step4: bind data<br> 
+These three types have different option set. Here are exmaples.
 ```javascript
 export default {
     data () {
       return {
         dateOptions: {
-          type: 'date', // 类型：日期
-          min: '2016-2-3', // 最小值
-          max: '2018-2-3',// 最大值
-          origin: '2017-2-3'// 初始值
-        },
+          type: 'date', // type: date
+          min: '2016-2-3', // minimun date
+          max: '2018-2-3',// maximum date
+          origin: '2017-2-3'// origin date
+        },
         timeOptions: {
-          type: 'time',// 类型：时间
-          origin: '00:00'// 初始值
-        },
+          type: 'time',// type: time
+          origin: '00:00'// origin time
+        },
         selectOptions: {
-          type: 'select',// 类型：多选
-          loop: false,// 可循环
-          origin: '请选择',// 初始值
-          selections: [ // 选项 disable: true 不可选择
-            [{name: '请选择', disabled: true}, {name: '3', disabled: false}, {name: '4', disabled: false}, {
-              name: '6',
-              disabled: false
-            }, {name: '8', disabled: false}]
+          type: 'select',// type: select
+          loop: false,// need loop ? true : false
+          origin: '请选择',// origin
+          selections: [ // name is what you can see, do you want it can be selected？ if yes, disabled: true, if no, disabled: false
+            [{name: '请选择', disabled: true}, 
+            {name: '3', disabled: false},
+            {name: '4', disabled: false}, 
+            {name: '6',disabled: false}, 
+            {name: '8', disabled: false}]
           ]
         }
       }
