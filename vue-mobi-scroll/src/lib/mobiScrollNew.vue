@@ -178,6 +178,7 @@
             }
             break
         }
+        this.value = newVal
       },
       ok () {
         this.show = false
