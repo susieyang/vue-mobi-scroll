@@ -4,9 +4,12 @@ Library is in /vue-mobi-scroll.
 By the way, it only support mobile web page and cannot work well on PC. I will try to support PC terminal later.
 
 How to use it:
-
-    1 npm install vue-mobi-scroll
-    2 if you want to use it globally, register it in main.js
+1 install
+```
+npm install vue-mobi-scroll
+```
+2 registe 
+    if you want to use it globally, register it in main.js
 ```javascript
 import VueMobiScroll from 'vue-mobi-scroll'
 Vue.use(VueMobiScroll)
