@@ -67,12 +67,10 @@
           this.setValue(this.value)
         },
         touchStart ($event) {
-          console.log('touchStart')
           $event.preventDefault()
           this.start = $event.touches[0].pageY
         },
         touchMove ($event) {
-          console.log('touchMove')
           $event.preventDefault()
           this.move = $event.touches[0].pageY
           this.actualMove(this.move - this.start, 0)
@@ -80,7 +78,6 @@
           this.start = this.move
         },
         touchEnd ($event) {
-          console.log('touchEnd')
           $event.preventDefault()
           this.end = $event.changedTouches[0].pageY
           if (this.options.freeMode) {

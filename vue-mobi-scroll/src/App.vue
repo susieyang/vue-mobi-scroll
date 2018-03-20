@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     日期示例：
-    <vue-mobi-scroll :options="dateOptions"></vue-mobi-scroll>
+    <vue-mobi-scroll :options="dateOptions" @set-val="setVal"></vue-mobi-scroll>
     时间示例：
-    <vue-mobi-scroll :options="timeOptions"></vue-mobi-scroll>
+    <vue-mobi-scroll :options="timeOptions" @set-val="setVal"></vue-mobi-scroll>
     多项选择示例：
-    <vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
+    <vue-mobi-scroll :options="selectOptions" @set-val="setVal"></vue-mobi-scroll>
   </div>
 </template>
 
@@ -38,6 +38,11 @@ export default {
           }, {name: '4', disabled: false}]
         ]
       }
+    }
+  },
+  methods: {
+    setVal (val) {
+      console.log(val)
     }
   }
 }

@@ -144,7 +144,6 @@
         }
       },
       changeVal (val, index) {
-        console.log(val + ' ' + index)
         this.parts[index].value = val
         if (this.options.type === 'date') {
           switch (index) {
@@ -196,6 +195,8 @@
             this.value = this.parts[0].value + ':' + this.parts[1].value
             break
         }
+        console.log('set-val')
+        this.$emit('set-val', this.value)
       },
       cancel () {
         this.show = false
