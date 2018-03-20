@@ -1,11 +1,11 @@
 # vue-mobi-scroll
-#Description
+Description
 ------
 Demo is in /demo, you can run "npm run dev" to see it.
 Library is in /vue-mobi-scroll.
 By the way, it only support mobile web page and cannot work well on PC. I will try to support PC terminal later.
 
-#How to use it:
+How to use it:
 ------
 1 install<br>
 ```
