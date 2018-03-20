@@ -10,7 +10,11 @@
 </template>
 
 <script>
+import {VueMobiScroll} from './lib/index.js'
 export default {
+  components: {
+    VueMobiScroll
+  },
   data () {
     return {
       dateOptions: {

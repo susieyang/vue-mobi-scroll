@@ -1,5 +1,6 @@
-import VueMobiScrollComponent from './mobiScrollNew.vue'
+var VueMobiScrollComponent = require('./mobiScrollNew.vue').default
 const VueMobiScroll = {
+  VueMobiScroll: VueMobiScrollComponent,
   install: function(Vue) {
     Vue.component(VueMobiScrollComponent.name, VueMobiScrollComponent)
   }
@@ -8,4 +9,4 @@ const VueMobiScroll = {
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(VueMobiScroll)
 }
-export default VueMobiScroll
+module.exports = VueMobiScroll
