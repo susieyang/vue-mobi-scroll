@@ -51,8 +51,8 @@
             for (let i = 0; i < 1; i++) {
               this.parts.push({
                 options: {
-                  loop: false,
-                  freeMode: true,
+                  loop: this.options.loop,
+                  freeMode: this.options.freeMode,
                   label: ['', ''],
                   height: {
                     allH: 180,
@@ -60,8 +60,8 @@
                     startTrans: (180 - 34) / 2
                   }
                 },
-                value: '1',
-                selection: [{name: '请选择', disabled: true}, {name: '1', disabled: false}, {name: '2', disabled: false}, {name: '3', disabled: false}, {name: '4', disabled: false}, {name: '5', disabled: false}]
+                value: this.options.origin,
+                selection: this.options.selections[i]
               })
             }
             break

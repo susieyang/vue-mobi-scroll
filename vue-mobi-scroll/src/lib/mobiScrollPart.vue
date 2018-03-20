@@ -156,6 +156,7 @@
                 break
               }
             }
+            if (valIndex === null) {valIndex = 0}
             if (this.selection[valIndex].disabled) {
               for (let i = valIndex; i < this.selection.length; i++) {
                 if (!this.selection[i].disabled) {
@@ -165,7 +166,7 @@
               }
             }
           }
-          this.actualMove((this.chosenIndex - valIndex) * this.options.height.itemH / 0.5, 0, true)
+          this.actualMove((this.chosenIndex - valIndex) * this.options.height.itemH / 0.5, 0, true, true)
         },
         limitTrans () {
           if (!this.options.loop) {
