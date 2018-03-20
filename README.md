@@ -27,7 +27,6 @@ export default {
   }
 }
 ```
-```javascript
 step3: use<br>
 there are three types can be used: date, time, select, 
 ``` javascript
@@ -38,6 +37,7 @@ time example：
 select example:
 <vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
 ```
+```javascript
 export default {
     data () {
       return {
