@@ -1,7 +1,7 @@
 # vue-mobi-scroll
 Description
 ------
-It can be used in mobi web page in vue project worked as datepiker, timepicker and select in the way of mobiscroll
+It can be used in mobi web page in vue project worked as datepiker, timepicker and select in the way of mobiscroll<br>
 Demo is in /demo, you can run "npm run dev" to see it.
 Library is in /vue-mobi-scroll.<br>
 By the way, it only support mobile web page and cannot work well on PC. I will try to support PC terminal later.
