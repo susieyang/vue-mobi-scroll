@@ -69,3 +69,5 @@ export default {
     }
   }
 ```
+
+PS.我设计的时候select是可以多选的 但现在还没有完成好
