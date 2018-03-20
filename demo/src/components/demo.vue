@@ -10,7 +10,11 @@
 </template>
 <script>
 /* eslint-disable */
-  export default {
+import {VueMobiScroll} from 'vue-mobi-scroll'
+export default {
+  components: {
+    VueMobiScroll
+  },
     data () {
       return {
         dateOptions: {
@@ -28,7 +32,7 @@
           loop: false,// 可循环
           origin: '请选择',// 初始值
           selections: [ // 选项 disable: true 不可选择
-            [{name: '请选择', disabled: true}, {name: '2', disabled: false}, {name: '4', disabled: false}, {
+            [{name: '请选择', disabled: true}, {name: '3', disabled: false}, {name: '4', disabled: false}, {
               name: '6',
               disabled: false
             }, {name: '8', disabled: false}]

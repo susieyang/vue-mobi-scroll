@@ -3,8 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueMobiScroll from 'vue-mobi-scroll'
-Vue.use(VueMobiScroll)
+// import VueMobiScroll from 'vue-mobi-scroll'
+// Vue.use(VueMobiScroll)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
