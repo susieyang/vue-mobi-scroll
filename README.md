@@ -20,7 +20,7 @@ Vue.use(VueMobiScroll)
 ```
 if you want to use it only in one component, register it in the component where you need it
 ```javascript
-import {VueMobiScroll} from './lib/index.js'
+import {VueMobiScroll} from 'vue-mobi-scroll'
 export default {
   components: {
     VueMobiScroll
