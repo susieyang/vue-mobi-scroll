@@ -52,7 +52,7 @@
               this.parts.push({
                 options: {
                   loop: this.options.loop,
-                  freeMode: this.options.freeMode,
+                  freeMode: true,
                   label: ['', ''],
                   height: {
                     allH: 180,
