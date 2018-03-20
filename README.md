@@ -7,11 +7,11 @@ By the way, it only support mobile web page and cannot work well on PC. I will t
 
 How to use it:
 ------
-1 install<br>
+step1: install<br>
 ```
 npm install vue-mobi-scroll
 ```
-2 registe<br>
+step2: registe<br>
 if you want to use it globally, register it in main.js<br>
 ```javascript
 import VueMobiScroll from 'vue-mobi-scroll'
@@ -26,4 +26,13 @@ export default {
     VueMobiScroll
   }
 }
+```
+step3: use
+```
+date example：
+<vue-mobi-scroll :options="dateOptions"></vue-mobi-scroll>
+time example：
+<vue-mobi-scroll :options="timeOptions"></vue-mobi-scroll>
+select example:
+<vue-mobi-scroll :options="selectOptions"></vue-mobi-scroll>
 ```
