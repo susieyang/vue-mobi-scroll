@@ -60,13 +60,21 @@
                     startTrans: (180 - 34) / 2
                   }
                 },
-                value: this.options.origin,
+                value: this.options.origin ? this.options.origin : this.options.selections[0],
                 selection: this.options.selections[i]
               })
+              if (this.options.origin) {
+                this.value = this.options.origin
+              }
             }
             break
           case 'date':
-            let valueDate = this.options.origin.split('-')
+            let valueDate
+            if (this.options.origin) {
+              valueDate = this.options.origin.split('-')
+            } else {
+              valueDate = this.options.min.split('-')
+            }
             this.parts.push({
               options: {
                 loop: false,
@@ -109,9 +117,17 @@
               value: Number(valueDate[2]),
               selection: this.getDaysByMonthYear(this.parts[0].value, this.parts[1].value)
             })
+            if (this.options.origin) {
+              this.value = this.options.origin
+            }
             break
           case 'time':
-            let valueTime = this.options.origin.split(':')
+            let valueTime
+            if (this.options.origin) {
+              valueTime = this.options.origin.split(':')
+            } else {
+              valueTime = ('00:00').split(':')
+            }
             this.parts.push({
               options: {
                 loop: true,
@@ -140,6 +156,9 @@
               value: valueTime[1],
               selection: this.getMins()
             })
+            if (this.options.origin) {
+              this.value = this.options.origin
+            }
             break
         }
       },

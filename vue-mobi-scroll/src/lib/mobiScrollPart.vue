@@ -64,7 +64,9 @@
           this.chosenIndex = 0
           this.startTrans = this.trans
           this.last = this.trans
-          this.setValue(this.value)
+          if (this.value) {
+            this.setValue(this.value)
+          }
         },
         touchStart ($event) {
           $event.preventDefault()
