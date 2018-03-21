@@ -20,7 +20,7 @@ export default {
       dateOptions: {
         type: 'date', // 类型：日期
         min: '2016-2-3', // 最小值
-        max: '2018-2-3',// 最大值
+        max: '2019-9-4',// 最大值
         origin: '2017-2-3'// 初始值
       },
       timeOptions: {

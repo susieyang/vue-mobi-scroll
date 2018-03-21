@@ -270,7 +270,7 @@
             break
           case Number(max[0]):
             for (let i = 1; i <= 12; i++) {
-              if (i > Number(min[1])) {
+              if (i > Number(max[1])) {
                 months.push({disabled: true, name: i})
               } else {
                 months.push({disabled: false, name: i})
