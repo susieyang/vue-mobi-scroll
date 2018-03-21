@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="请选择" readonly :value="value" @click="showScoll">
+    <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="value" @click="showScoll">
     <div class="mbsc" v-show="show">
       <div class="mbsc-mask"></div>
       <div class="mbsc-fr">
