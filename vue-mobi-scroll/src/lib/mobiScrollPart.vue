@@ -15,7 +15,7 @@
 </template>
 <script>
     export default {
-      props: ['options', 'selection', 'value', 'index'],
+      props: ['options', 'selection', 'value'],
       data () {
         return {
           localSelection: [],
@@ -64,9 +64,7 @@
           this.chosenIndex = 0
           this.startTrans = this.trans
           this.last = this.trans
-          if (this.value) {
-            this.setValue(this.value)
-          }
+          this.setValue(this.value)
         },
         touchStart ($event) {
           $event.preventDefault()
@@ -139,7 +137,7 @@
             let tempCloseIndex = Math.round((that.startTrans - transEnd) / that.options.height.itemH)
             let nextIndex = that.disabledNext(that.selection, tempCloseIndex, that.options.loop)
             if (emitChangeVal) {
-              that.$emit('change-val', that.loopIndex(that.selection, nextIndex).name, that.index)
+              that.$emit('change-val', that.loopIndex(that.selection, nextIndex).name)
             }
             move = (that.startTrans - nextIndex * that.options.height.itemH - that.last) * 2
           }

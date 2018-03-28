@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="value" @click="showScoll">
+    <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="options.value" @click="showScoll">
     <div class="mbsc" v-show="show">
       <div class="mbsc-mask"></div>
       <div class="mbsc-fr">
@@ -19,7 +19,7 @@
             :value="part.value"
             :selection="part.selection"
             :index = "index"
-            v-for="(part, index) in parts" @change-val="changeVal">
+            v-for="(part, index) in parts" @change-val="changeVal($event, index)">
           </mobi-scroll-part>
         </div>
         <!--</div>-->
@@ -60,18 +60,18 @@
                     startTrans: (180 - 34) / 2
                   }
                 },
-                value: this.options.origin ? this.options.origin : this.options.selections[0],
+                value: this.options.value ? this.options.value : this.options.selections[0],
                 selection: this.options.selections[i]
               })
-              if (this.options.origin) {
-                this.value = this.options.origin
+              if (this.options.value) {
+                this.value = this.options.value
               }
             }
             break
           case 'date':
             let valueDate
-            if (this.options.origin) {
-              valueDate = this.options.origin.split('-')
+            if (this.options.value) {
+              valueDate = this.options.value.split('-')
             } else {
               valueDate = this.options.min.split('-')
             }
@@ -117,14 +117,14 @@
               value: Number(valueDate[2]),
               selection: this.getDaysByMonthYear(this.parts[0].value, this.parts[1].value)
             })
-            if (this.options.origin) {
-              this.value = this.options.origin
+            if (this.options.value) {
+              this.value = this.options.value
             }
             break
           case 'time':
             let valueTime
-            if (this.options.origin) {
-              valueTime = this.options.origin.split(':')
+            if (this.options.value) {
+              valueTime = this.options.value.split(':')
             } else {
               valueTime = ('00:00').split(':')
             }
@@ -156,8 +156,8 @@
               value: valueTime[1],
               selection: this.getMins()
             })
-            if (this.options.origin) {
-              this.value = this.options.origin
+            if (this.options.value) {
+              this.value = this.options.value
             }
             break
         }
@@ -199,24 +199,24 @@
         }
         this.value = newVal
       },
-      ok () {
+      ok (type) {
         this.show = false
         switch (this.options.type) {
           case 'select':
-            this.value = ''
+            this.options.value = ''
             for (let i = 0; i < this.parts.length; i++) {
-              this.value += this.parts[i].value
+              this.options.value += this.parts[i].value
             }
             break
           case 'date':
-            this.value = this.parts[0].value + '-' + this.parts[1].value + '-' + this.parts[2].value
+            this.options.value = this.parts[0].value + '-' + this.parts[1].value + '-' + this.parts[2].value
             break
           case 'time':
-            this.value = this.parts[0].value + ':' + this.parts[1].value
+            this.options.value = this.parts[0].value + ':' + this.parts[1].value
             break
         }
         console.log('set-val')
-        this.$emit('set-val', this.value)
+        this.$emit('set-val', this.options.value)
       },
       cancel () {
         this.show = false
@@ -326,8 +326,13 @@
         return days
       },
       showScoll () {
-        this.show = true
-        this.lastValue = this.value
+        if (!this.options.disabled) {
+          this.show = true
+          if (this.lastValue !== this.options.value) {
+            this.setValue(this.options.value)
+            this.lastValue = this.options.value
+          }
+        }
       }
     },
     mounted () {
