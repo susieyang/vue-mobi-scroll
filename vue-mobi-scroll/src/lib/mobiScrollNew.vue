@@ -1,18 +1,15 @@
 <template>
   <div>
-    <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="options.value" @click="showScoll">
+    <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="options.value | dateFormat('yy-mm-dd', options.type)" @click="showScoll">
     <div class="mbsc" v-show="show">
-      <div class="mbsc-mask"></div>
+      <div class="mbsc-mask" @click="cancel()"></div>
       <div class="mbsc-fr">
         <div class="mbsc-btn flex flex-between after-line">
           <div @click="cancel()">取消</div>
           <div @click="ok()">确定</div>
         </div>
-        <!--<div class="mbsc-container">-->
         <div class="mbsc-content flex flex-between">
           <div class="mbsc-line after-line before-line"></div>
-          <!--<testChild :test="test"></testChild>-->
-          <!--<div v-for="i in test">{{i}}</div>-->
           <mobi-scroll-part
             ref="part"
             :options="part.options"
@@ -22,7 +19,6 @@
             v-for="(part, index) in parts" @change-val="changeVal($event, index)">
           </mobi-scroll-part>
         </div>
-        <!--</div>-->
       </div>
     </div>
   </div>
@@ -38,7 +34,6 @@
     data () {
       return {
         show: false,
-        value: '',
         lastValue: '',
         parts: []
       }
@@ -63,9 +58,6 @@
                 value: this.options.value ? this.options.value : this.options.selections[0],
                 selection: this.options.selections[i]
               })
-              if (this.options.value) {
-                this.value = this.options.value
-              }
             }
             break
           case 'date':
@@ -117,9 +109,6 @@
               value: Number(valueDate[2]),
               selection: this.getDaysByMonthYear(this.parts[0].value, this.parts[1].value)
             })
-            if (this.options.value) {
-              this.value = this.options.value
-            }
             break
           case 'time':
             let valueTime
@@ -156,9 +145,6 @@
               value: valueTime[1],
               selection: this.getMins()
             })
-            if (this.options.value) {
-              this.value = this.options.value
-            }
             break
         }
       },
@@ -197,7 +183,6 @@
             }
             break
         }
-        this.value = newVal
       },
       ok (type) {
         this.show = false
@@ -215,7 +200,6 @@
             this.options.value = this.parts[0].value + ':' + this.parts[1].value
             break
         }
-        console.log('set-val')
         this.$emit('set-val', this.options.value)
       },
       cancel () {
@@ -332,6 +316,48 @@
             this.setValue(this.options.value)
             this.lastValue = this.options.value
           }
+        }
+      }
+    },
+    filters: {
+//      例 'yy-mm-dd' 'yy-m-d' 'yy年-m月-d年'
+      dateFormat: function (str, format, type) {
+        console.log(str + ' ' + format)
+        if (type === 'date' && str.length > 0) {
+          let tempStr = str.split('-')
+          let tempFormat = format.split('-')
+          let result = tempStr[0]
+          let temp = tempFormat[0].split('yy')
+          if (temp.length > 1) {
+            result += temp[1]
+          }
+          result += '-'
+          let pattern = new RegExp('m', 'g');
+          if (format.match(pattern).length > 1) {
+            temp = tempFormat[1].split('mm')
+            result += tempStr[1].length > 1 ?  '' : '0'
+          } else {
+            temp = tempFormat[1].split('m')
+          }
+          result += tempStr[1]
+          if (temp.length > 1) {
+            result += temp[1]
+          }
+          result += '-'
+          pattern = new RegExp('d', 'g');
+          if (format.match(pattern).length > 1) {
+            temp = tempFormat[2].split('dd')
+            result += tempStr[2].length > 1 ?  '' : '0'
+          } else {
+            temp = tempFormat[2].split('d')
+          }
+          result += tempStr[2]
+          if (temp.length > 1) {
+            result += temp[1]
+          }
+          return result
+        } else {
+          return str
         }
       }
     },

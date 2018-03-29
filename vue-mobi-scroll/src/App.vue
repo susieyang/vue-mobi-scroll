@@ -2,7 +2,7 @@
   <div id="app">
     日期示例：
     <div @click="change('date', '2017-5-6')">点击修改'2017-5-6'</div>
-    <vue-mobi-scroll ref="beginTime" :options="{type: 'date', min: dateOptions.min, max: dateOptions.max, value: dateOptions.value}" @set-val="setVal"></vue-mobi-scroll>
+    <vue-mobi-scroll ref="beginTime" :options="dateOptions" @set-val="setVal"></vue-mobi-scroll>
     时间示例：
     <div @click="change('time', '07:08')">点击修改'07:08'</div>
     <vue-mobi-scroll :options="timeOptions" @set-val="setVal"></vue-mobi-scroll>
@@ -22,6 +22,7 @@ export default {
     return {
       dateOptions: {
         type: 'date', // 类型：日期
+        dateFormat: 'yy-dd-mm',
         min: '', // 最小值
         max: '',// 最大值
         value: ''// 初始值
