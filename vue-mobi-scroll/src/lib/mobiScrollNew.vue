@@ -322,7 +322,6 @@
     filters: {
 //      例 'yy-mm-dd' 'yy-m-d' 'yy年-m月-d年'
       dateFormat: function (str, format, type) {
-        console.log(str + ' ' + format)
         if (type === 'date' && str.length > 0) {
           let tempStr = str.split('-')
           let tempFormat = format.split('-')

@@ -147,23 +147,27 @@
           if (val === '') {
             valIndex = 0
           } else {
-            for (let i = 0; i < this.selection.length; i++) {
-              if (this.selection[i].name === val) {
-                valIndex = i
-                break
-              }
-            }
-            if (valIndex === null) {valIndex = 0}
-            if (this.selection[valIndex].disabled) {
-              for (let i = valIndex; i < this.selection.length; i++) {
-                if (!this.selection[i].disabled) {
+            if (this.selection.length > 0) {
+              for (let i = 0; i < this.selection.length; i++) {
+                if (this.selection[i].name === val) {
                   valIndex = i
                   break
                 }
               }
+              if (valIndex === null) {valIndex = 0}
+              if (this.selection[valIndex].disabled) {
+                for (let i = valIndex; i < this.selection.length; i++) {
+                  if (!this.selection[i].disabled) {
+                    valIndex = i
+                    break
+                  }
+                }
+              }
             }
           }
-          this.actualMove((this.chosenIndex - valIndex) * this.options.height.itemH / 0.5, 0, true, true)
+          if (this.selection.length) {
+            this.actualMove((this.chosenIndex - valIndex) * this.options.height.itemH / 0.5, 0, true, true)
+          }
         },
         limitTrans () {
           if (!this.options.loop) {
