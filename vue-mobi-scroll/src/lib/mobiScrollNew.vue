@@ -3,7 +3,7 @@
     <input type="text" :placeholder="options.placeholder ? options.placeholder : '请选择'" readonly :value="options.value | dateFormat('yy-mm-dd', options.type)" @click="showScoll">
     <div class="mbsc" v-show="show">
       <div class="mbsc-mask" @click="cancel()"></div>
-      <div class="mbsc-fr">
+      <div class="mbsc-fr" :class="{'move-up': show, 'move-down': !show}">
         <div class="mbsc-btn flex flex-between after-line">
           <div @click="cancel()">取消</div>
           <div @click="ok()">确定</div>
@@ -71,7 +71,7 @@
               options: {
                 loop: false,
                 freeMode: true,
-                label: ['', ''],
+                label: ['', '年'],
                 height: {
                   allH: 180,
                   itemH: 34,
@@ -99,7 +99,7 @@
               options: {
                 loop: true,
                 freeMode: true,
-                label: ['', ''],
+                label: ['', '日'],
                 height: {
                   allH: 180,
                   itemH: 34,
@@ -422,6 +422,7 @@
     top: 0;
     left: 0;
     z-index: 10;
+    font-size: 16px;
   }
 
   .mbsc-mask {
@@ -443,6 +444,7 @@
   }
 
   .mbsc-btn {
+    position: relative;
   }
 
   .mbsc-btn > div {
@@ -482,5 +484,71 @@
   }
   .mbsc-disable {
     opacity: .3;
+  }
+  .move-up {
+    animation:show 0.3s;
+    -moz-animation:show 0.3s; /* Firefox */
+    -webkit-animation:show 0.3s; /* Safari and Chrome */
+    -o-animation:show 0.3s; /* Opera */
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count:1;
+    -webkit-animation-iteration-count:1;
+  }
+  .move-down {
+    animation:hide 0.3s;
+    -moz-animation:hide 0.3s; /* Firefox */
+    -webkit-animation:hide 0.3s; /* Safari and Chrome */
+    -o-animation:hide 0.3s; /* Opera */
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-iteration-count:1;
+    -webkit-animation-iteration-count:1;
+  }
+  @keyframes hide
+  {
+    from {bottom:0px;}
+    to {bottom:-240px;}
+  }
+
+  @-moz-keyframes hide /* Firefox */
+  {
+    from {bottom:0px;}
+    to {bottom:-240px;}
+  }
+
+  @-webkit-keyframes hide /* Safari and Chrome */
+  {
+    from {bottom:0px;}
+    to {bottom:-240px;}
+  }
+
+  @-o-keyframes hide /* Opera */
+  {
+    from {bottom:0px;}
+    to {bottom:-240px;}
+  }
+  @keyframes show
+  {
+    from {bottom:-240px;}
+    to {bottom:0px;}
+  }
+
+  @-moz-keyframes show /* Firefox */
+  {
+    from {bottom:-240px;}
+    to {bottom:0px;}
+  }
+
+  @-webkit-keyframes show /* Safari and Chrome */
+  {
+    from {bottom:-240px;}
+    to {bottom:0px;}
+  }
+
+  @-o-keyframes show /* Opera */
+  {
+    from {bottom:-240px;}
+    to {bottom:0px;}
   }
 </style>
